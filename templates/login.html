@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="panel-content" style="margin-left:20%; margin-right:20%; margin-top:5%">
+  <div class="col-md-8 col-sm-6 col-xs-12" style="width:95%;">
+    <div class="row">
+
+<h1>Log In to Blogz!</h1>
+<p>If you don't have an account, you may <a href="/signup">register</a> for one.</p>
+<form action="/login" method="POST" style = "align:center">
+  <div class="form-group">
+  <br>
+
+            <input id="username" class="form-control" type="username" name="username" value="{{ username }}" required placeholder="username"/>
+            <br>
+            <input id="password" class="form-control" type="password" name="password" value="" required placeholder="password"/>
+            <br>
+            <center>
+          <input type="submit" class="btn btn-round btn-default" value="Login!" />
+        </center>
+
+    <p>{{error}}</p>
+</form>
+{% endblock %}

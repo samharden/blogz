@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<title>Blog!</title>
+
+</head>
+<body class="main_body_bg_color">
+<div class="wrapper">
+    <div id="mainbody" class="main_container">
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+
+
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+              <li role="presentation"><a href="add-new">New Post</a></li>
+              <li role="presentation"><a href="blog">All Posts</a></li>
+              {% if _username %}
+              <li role="presentation"><a href="/blog?user_id={{_userid}}">My Posts</a></li>
+              <li role="presentation"><a href="logout">Log Out</a></li>
+              {% else %}
+              <li role="presentation"><a href="login">Log In</a></li>
+              {% endif %}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        {% if _username %}
+        <li role="button" style="text-align:right">Hello, {{_username}}</li>
+
+        {% endif %}
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</div>
+    {% block content %}
+    {% endblock %}
+
+</body>

@@ -1,0 +1,20 @@
+<!--  Redo to display all usernames-->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="col-md-8 col-sm-6 col-xs-12" style="width:95%;">
+  <h1>Build A Blog</h1>
+
+      <h2>User posts: </h2>
+      {% for each_name in usernames %}
+      <h2><a href="/blog?user_id={{each_name.id}}">{{each_name.username}}</a></h2>
+
+          {% endfor %}
+
+</div>
+</div>
+
+</body>
+</html>
+{% endblock %}

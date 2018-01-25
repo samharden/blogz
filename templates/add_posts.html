@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="panel-content" style="margin-left:20%; margin-right:20%; margin-top:5%">
+  <div class="col-md-8 col-sm-6 col-xs-12" style="width:95%;">
+    <div class="row">
+
+          <form action="/add-new" method="POST" style = "align:center">
+            <div class="form-group">
+            <br>
+            <input id="title" class="form-control" type="text" name="title" value="" required placeholder="Title"/>
+            <br>
+            <textarea id="body" class="form-control" type="text-area" name="body" required value="" placeholder="Blog post content"></textarea>
+            <br><center>
+          <input type="submit" class="btn btn-round btn-default" value="Post!" />
+        </center>
+
+        </form>
+      </div>
+      </div>
+    </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}

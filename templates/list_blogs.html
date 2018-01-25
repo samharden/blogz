@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="col-md-8 col-sm-6 col-xs-12" style="width:95%;">
+  <h1>Build A Blog</h1>
+
+      {% if blog_posts|length == 0 %}
+      <p>No posts yet.</p>
+      {% else %}
+      {% if _username %}
+      <h2>{{posts_by}}:</h2>
+
+      {% endif %}
+          {% for post in blog_posts %}
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title"><a href="/display?id={{post.id}}">{{post.title}}</a></h2>
+            </div>
+            <div class="panel-body">
+              <p>{{post.body}}</p>
+              {% for illuminati in all_users %}
+              {% if post.owner_id == illuminati.id %}
+              <p> Written by: <a href="/blog?user_id={{post.owner_id}}">{{illuminati.username}} </a></p>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+
+              {% endfor %}
+      {% endif %}
+
+
+
+</body>
+</html>
+{% endblock %}
